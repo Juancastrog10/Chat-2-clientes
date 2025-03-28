@@ -1,41 +1,41 @@
-<!DOCTYPE html> <!-- Indica que es un documento HTML5 -->
-<html lang="es"> <!-- La página está en español -->
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8"> <!-- Permite usar caracteres especiales como tildes y ñ -->
-  <title>Chat App - Cliente 1</title> <!-- Título de la pestaña del navegador -->
-
-  <link rel="stylesheet" href="styles.css"> <!-- Enlaza el archivo de estilos CSS -->
-
-  <script defer src="/socket.io/socket.io.js"></script> <!-- Carga la librería de Socket.IO para comunicación en tiempo real -->
-  <script defer src="index.js"></script> <!-- Carga el script de JS que controla el comportamiento del chat -->
+  <meta charset="UTF-8">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="index.js"></script>
 </head>
-
 <body>
-  <h1>Chat App</h1> <!-- Título principal visible de la página -->
 
-  <div>
-    <label>Tu nombre: </label> <!-- Texto que acompaña el campo para el nombre -->
-    <input type="text" id="username" value="cliente1" /> <!-- Campo de texto donde el usuario ve o cambia su nombre -->
-    <button id="setName">Actualizar nombre</button> <!-- Botón para confirmar el cambio de nombre -->
+  <!-- Pantalla para ingresar nombre -->
+  <div id="registerScreen">
+    <h2>Ingresa tu nombre de usuario</h2>
+    <input type="text" id="username" placeholder="Ej: usuario123" />
+    <button id="registerBtn">Entrar</button>
   </div>
 
-  <h2>Usuarios en línea</h2> <!-- Subtítulo para la lista de usuarios conectados -->
-  <ul id="usersOnline"></ul> <!-- Lista donde se mostrarán los usuarios conectados -->
+  <!-- Pantalla principal del chat -->
+  <div id="chatScreen" style="display: none;">
+    <h1>Chat App</h1>
 
-  <p id="typingInfo"></p> <!-- Aquí se mostrará un mensaje temporal como "usuario está escribiendo..." -->
+    <h2>Usuarios en línea</h2>
+    <ul id="usersOnline"></ul>
 
-  <div>
-    <input type="text" id="toUser" placeholder="Enviar a (deja vacío para público)" /> <!-- Campo para escribir el nombre del destinatario del mensaje -->
-    <input type="text" id="message" placeholder="Tu mensaje" /> <!-- Campo para escribir el mensaje -->
-    <button id="send">Enviar</button> <!-- Botón para enviar el mensaje -->
+    <p id="typingInfo"></p>
+
+    <div>
+      <input type="text" id="toUser" placeholder="Enviar a (deja vacío para público)" />
+      <input type="text" id="message" placeholder="Tu mensaje" />
+      <button id="send">Enviar</button>
+    </div>
+
+    <h2>Mensajes</h2>
+    <ul id="chatBox"></ul>
+
+    <audio id="ping" src="https://notificationsounds.com/storage/sounds/file-sounds-1142-pristine.mp3" preload="auto"></audio>
   </div>
 
-  <h2>Mensajes</h2> <!-- Subtítulo para la sección del historial de mensajes -->
-  <ul id="chatBox"></ul> <!-- Lista donde aparecerán los mensajes enviados y recibidos -->
-
-  <audio id="ping" src="https://notificationsounds.com/storage/sounds/file-sounds-1142-pristine.mp3" preload="auto"></audio>
-  <!-- Sonido que se reproducirá cuando llegue un mensaje. preload="auto" lo carga de inmediato para evitar demoras -->
 </body>
-
 </html>
