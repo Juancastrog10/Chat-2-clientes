@@ -1,40 +1,80 @@
 <!DOCTYPE html>
+<!-- Indica que este documento es HTML5 -->
+
 <html lang="es">
+<!-- Establece el idioma del documento como español -->
+
 <head>
   <meta charset="UTF-8">
+  <!-- Define la codificación de caracteres para admitir acentos, ñ, etc. -->
+
   <title>Chat App</title>
+  <!-- Título que aparece en la pestaña del navegador -->
+
   <link rel="stylesheet" href="styles.css">
+  <!-- Enlaza el archivo de estilos CSS para la apariencia de la app -->
+
   <script defer src="/socket.io/socket.io.js"></script>
+  <!-- Carga la librería de Socket.IO para usar WebSockets en el navegador -->
+
   <script defer src="index.js"></script>
+  <!-- Carga tu archivo JavaScript principal con defer para que se ejecute al final -->
 </head>
+
 <body>
+  <!-- Cuerpo del documento -->
 
   <!-- Pantalla para ingresar nombre -->
   <div id="registerScreen">
+    <!-- Contenedor visible al inicio donde el usuario ingresa su nombre -->
+
     <h2>Ingresa tu nombre de usuario</h2>
+    <!-- Título de la sección de registro -->
+
     <input type="text" id="username" placeholder="Ej: usuario123" />
+    <!-- Campo de texto donde el usuario escribe su nombre -->
+
     <button id="registerBtn">Entrar</button>
+    <!-- Botón para confirmar el nombre e ingresar al chat -->
   </div>
 
   <!-- Pantalla principal del chat -->
   <div id="chatScreen" style="display: none;">
+    <!-- Esta sección está oculta al principio y se muestra cuando el usuario se registra -->
+
     <h1>Chat App</h1>
+    <!-- Título principal del chat -->
 
     <h2>Usuarios en línea</h2>
+    <!-- Subtítulo para la lista de usuarios conectados -->
+
     <ul id="usersOnline"></ul>
+    <!-- Lista donde se mostrarán los nombres de los usuarios conectados -->
 
     <p id="typingInfo"></p>
+    <!-- Mensaje temporal que muestra quién está escribiendo -->
 
     <div>
+      <!-- Sección para escribir un mensaje -->
+
       <input type="text" id="toUser" placeholder="Enviar a (deja vacío para público)" />
+      <!-- Campo para escribir el nombre del destinatario (opcional) -->
+
       <input type="text" id="message" placeholder="Tu mensaje" />
+      <!-- Campo para escribir el contenido del mensaje -->
+
       <button id="send">Enviar</button>
+      <!-- Botón para enviar el mensaje -->
     </div>
 
     <h2>Mensajes</h2>
+    <!-- Subtítulo de la sección de mensajes -->
+
     <ul id="chatBox"></ul>
+    <!-- Lista donde se mostrarán todos los mensajes del chat -->
 
     <audio id="ping" src="https://notificationsounds.com/storage/sounds/file-sounds-1142-pristine.mp3" preload="auto"></audio>
+    <!-- Elemento de audio para reproducir un sonido cuando llega un mensaje nuevo -->
   </div>
 
 </body>
